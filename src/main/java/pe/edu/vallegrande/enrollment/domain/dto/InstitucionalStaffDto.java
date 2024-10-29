@@ -4,11 +4,11 @@ import lombok.Data;
 
 @Data
 public class InstitucionalStaffDto {
-    private String id_institucional_staff;
+    private String id;
     private String name;
-    private String document_number;
+    private String documentNumber;
     private String email;
     private String phone;
     private String occupation;
-    private String state;
+    private String status;
 }
