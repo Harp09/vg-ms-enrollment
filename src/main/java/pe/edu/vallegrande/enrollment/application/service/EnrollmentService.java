@@ -139,4 +139,32 @@ public class EnrollmentService {
                 .doOnSuccess(e -> log.info("Estado de inscripción cambiado exitosamente a " + status + " para el ID: " + id))
                 .doOnError(error -> log.error("Error al cambiar el estado de la inscripción con ID: " + id, error));
     }
+    // Obtener inscripciones por estado
+    public Mono<EnrollmentDto> findEnrollmentById(String id) {
+        return enrollmentRepository.findById(id)
+                .flatMap(enrollment -> Mono.zip(
+                                        externalService.getProfileById(enrollment.getProfileId())
+                                                .doOnSuccess(profile -> log.info("Perfil encontrado: {}", profile)),
+                                        externalService.getAcademicPeriodById(enrollment.getAcademicPeriodId())
+                                                .doOnSuccess(period -> log.info("Periodo académico encontrado: {}", period)),
+                                        externalService.getInstitutionalStaffById(enrollment.getInstitutionalStaffId())
+                                                .doOnSuccess(staff -> log.info("Staff institucional encontrado: {}", staff)),
+                                        externalService.getStudentByDocumentNumber(enrollment.getDocumentNumber())
+                                                .doOnSuccess(student -> log.info("Estudiante encontrado: {}", student)),
+                                        externalService.getStudyProgramById(enrollment.getProgramId())
+                                                .doOnSuccess(program -> log.info("Programa de estudios encontrado: {}", program))
+                                ).map(tuple -> {
+                                    EnrollmentDto enrollmentDto = new EnrollmentDto();
+                                    enrollmentDto.setId(enrollment.getId());
+                                    enrollmentDto.setProfileId(tuple.getT1());
+                                    enrollmentDto.setAcademicPeriodId(tuple.getT2());
+                                    enrollmentDto.setInstitutionalStaffId(tuple.getT3());
+                                    enrollmentDto.setStudent(tuple.getT4());
+                                    enrollmentDto.setProgramId(tuple.getT5());
+                                    enrollmentDto.setStatus(enrollment.getStatus());
+                                    return enrollmentDto;
+                                })
+                                .doOnError(error -> log.error("Error al procesar inscripción con ID: " + enrollment.getId(), error))
+                );
+    }
 }

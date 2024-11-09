@@ -69,4 +69,8 @@ public class EnrollmentController {
     public ResponseEntity<Mono<StudentDto>> getStudentByDocumentNumber(@PathVariable String documentNumber) {
         return ResponseEntity.ok(enrollmentService.findStudentByDocumentNumber(documentNumber));
     }
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<Mono<EnrollmentDto>> findEnrollmentById(@PathVariable String id) {
+        return ResponseEntity.ok(enrollmentService.findEnrollmentById(id));
+    }
 }
