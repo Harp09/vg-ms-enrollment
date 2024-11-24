@@ -37,7 +37,7 @@ public class ExternalService {
 
     // Método para obtener personal institucional por ID
     public Mono<InstitucionalStaffDto> getInstitutionalStaffById(String staffId) {
-        return fetchData("https://vg-ms-institucional-staff-production-4fb6.up.railway.app/management/api/v1/institucional-staff/get/", staffId, InstitucionalStaffDto.class);
+        return fetchData("https://vg-ms-institucional-staff-production.up.railway.app/management/api/v1/institucional-staff/get/", staffId, InstitucionalStaffDto.class);
     }
 
     // Método para obtener programa de estudios por ID
