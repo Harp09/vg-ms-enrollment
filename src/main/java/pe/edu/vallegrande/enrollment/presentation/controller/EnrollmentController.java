@@ -11,7 +11,6 @@ import pe.edu.vallegrande.enrollment.application.service.EnrollmentService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@CrossOrigin(value = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 @RestController
 @RequestMapping("/management/${api.version}/enrollment")
 public class EnrollmentController {
