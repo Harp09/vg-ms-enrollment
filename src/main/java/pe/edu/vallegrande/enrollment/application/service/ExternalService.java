@@ -22,22 +22,22 @@ public class ExternalService {
 
     // Método para obtener perfil por ID
     public Mono<ProfileDto> getProfileById(String profileId) {
-        return fetchData("https://vg-ms-profile-production.up.railway.app/management/api/v1/profile/list/", profileId, ProfileDto.class);
+        return fetchData("https://vg-ms-profile-production-6fff.up.railway.app/management/api/v1/profile/list/", profileId, ProfileDto.class);
     }
 
     // Método para obtener período académico por ID
     public Mono<AcademicPeriodDto> getAcademicPeriodById(String academicPeriodId) {
-        return fetchData("https://academicperiod-production.up.railway.app/management/api/v1/academic_period/id/", academicPeriodId, AcademicPeriodDto.class);
+        return fetchData("https://vg-ms-academicperiod-production.up.railway.app/management/api/v1/academic_period/id/", academicPeriodId, AcademicPeriodDto.class);
     }
 
     // Método para buscar estudiante por número de documento
     public Mono<StudentDto> getStudentByDocumentNumber(String documentNumber) {
-        return fetchData("https://ms-vg-student-production.up.railway.app/management/api/v1/student/list/document/", documentNumber, StudentDto.class);
+        return fetchData("https://vg-ms-student-production.up.railway.app/management/api/v1/student/list/document/", documentNumber, StudentDto.class);
     }
 
     // Método para obtener personal institucional por ID
     public Mono<InstitucionalStaffDto> getInstitutionalStaffById(String staffId) {
-        return fetchData("https://vg-ms-institucional-staff-production.up.railway.app/management/api/v1/institucional-staff/get/", staffId, InstitucionalStaffDto.class);
+        return fetchData("https://institucional-staff-production.up.railway.app/management/api/v1/institucional-staff/get/", staffId, InstitucionalStaffDto.class);
     }
 
     // Método para obtener programa de estudios por ID
