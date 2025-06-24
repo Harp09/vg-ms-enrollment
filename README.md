@@ -43,4 +43,50 @@ This CSR initiative by our CETPRO institute delivers **free technical tutorials*
 
 ## 📁 Repository Structure
 For open source projects, say how it is licensed.
+/cetpro-social-project
+├─ backend/ # Java 17 + Spring Boot REST API
+├─ frontend/ # Angular application
+├─ README.md # ← You are here
+├─ CONTRIBUTING.md # Contribution guidelines
+├─ .env.example # Environment variables template
+└─ docs/ # Technical specs & architecture diagrams
+---
 
+## 🧑‍🏫 Contributing (Imperatives & Advice)
+- **Fork** this repo.  
+- **Create** a feature branch:  
+  `git checkout -b feature/your-feature-name`  
+- **Implement**, **test**, and **lint** your feature locally.  
+- **Open** a Pull Request with a clear summary and description.  
+  > You **should** add “Fixes #\<issue-number\>” in your PR if it's related to an open issue.
+
+---
+
+## 🚀 Deployment Requirements (Must & Need To)
+- You **must** set the environment variables:
+- MONGODB_URI=your_mongodb_uri
+- JWT_SECRET=your_jwt_secret_key
+- - You **need to** enable CORS in the Spring configuration for frontend access.  
+- You **must** build the frontend before deployment:  
+`npm run build` in `/frontend/`  
+Upload contents of `dist/` to your hosting platform.
+
+---
+
+## 💡 Best Practices & Tips
+- You **should** write unit tests (JUnit for backend, Jasmine/Karma for frontend).  
+- You **should** document any new REST endpoints in the README or API specification.  
+- You **should** run `mvn clean` and `npm run lint` before each commit.
+
+---
+
+## 📞 Questions & Support
+If you need help:
+- **Open** an issue in this repository.  
+- **Tag** `@project-lead` for urgent issues.  
+- **Join** our group chat on Discord or Telegram for real-time collaboration.
+
+---
+
+**Thank you for your contributions!**  
+👍 *Let's build something meaningful together.*
