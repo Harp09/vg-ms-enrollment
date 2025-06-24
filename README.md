@@ -42,7 +42,6 @@ This CSR initiative by our CETPRO institute delivers **free technical tutorials*
 ---
 
 ## 📁 Repository Structure
-
 ```text
 /cetpro-social-project
 ├── backend/        # Java 17 + Spring Boot REST API
@@ -51,7 +50,7 @@ This CSR initiative by our CETPRO institute delivers **free technical tutorials*
 ├── CONTRIBUTING.md # Contribution guidelines
 ├── .env.example    # Environment variables template
 └── docs/           # Project documentation & diagrams
-
+```
 ---
 
 ## 🧑‍🏫 Contributing (Imperatives & Advice)
